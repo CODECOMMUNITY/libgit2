@@ -449,6 +449,12 @@ struct git_remote_callbacks {
 	int (*push_update_reference)(const char *refname, const char *status, void *data);
 
 	/**
+	 * Create the transport to use for this operation. Leave NULL
+	 * to auto-detect.
+	 */
+	git_transport_cb transport;
+
+	/**
 	 * This will be passed to each of the callbacks in this struct
 	 * as the last parameter.
 	 */
