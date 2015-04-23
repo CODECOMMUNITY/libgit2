@@ -2348,7 +2348,7 @@ int git_remote_upload(git_remote *remote, const git_strarray *refspecs, const gi
 		goto cleanup;
 
 	free_refspecs(&remote->active_refspecs);
-	if (dwim_refspecs(&remote->active_refspecs, &remote->refspecs, &remote->refs) < 0)
+	if ((error = dwim_refspecs(&remote->active_refspecs, &remote->refspecs, &remote->refs)) < 0)
 		goto cleanup;
 
 	if (remote->push) {
